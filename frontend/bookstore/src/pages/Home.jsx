@@ -25,12 +25,26 @@ const Home = () => {
       });
   }, []);
   return (
-    <div className="p-4">
-      <div className="flex justify-between items-cente">
-        <h1 className="text-3xl my-4 ">Books List</h1>
-        <Link to="/books/create">
-          <MdOutlineAddBox className="text-sky-800 text-4xl" />
-        </Link>
+    <div className="p-4 min-h-screen bg-gradient-to-br from-blue-700 to-red-600 ">
+      <div className="flex justify-between items-center">
+        <h1 className="text-3xl text-black font-bold my-4 ">Books List</h1>
+        <div className="flex justify-evenly items-center">
+          <Link to="/books/create">
+            <MdOutlineAddBox className="text-balck font-bold text-4xl m-4" />
+          </Link>
+          <Link
+            className="bg-black text-white hover:bg-gray-400 hover:text-black p-2 m-4 rounded-xl"
+            to="/login"
+          >
+            Login
+          </Link>
+          <Link
+            className="bg-black text-white hover:bg-gray-400 hover:text-black p-2 m-4 rounded-xl"
+            to="/register"
+          >
+            SignIn
+          </Link>
+        </div>
       </div>
       {loading ? (
         <Spinner />
@@ -40,16 +54,14 @@ const Home = () => {
         <table className="w-full border-separate border-spacing-2 my-4">
           <thead>
             <tr>
-              <th className="border border-slate-600 rounded-md">No</th>
-              <th className="border border-slate-600 rounded-md">Title</th>
-              <th className="border border-slate-600 rounded-md">Author</th>
-              <th className="border border-slate-600 rounded-md">
-                Publishyear
-              </th>
-              <th className="border border-slate-600 rounded-md">Operations</th>
+              <th className="border border-black rounded-md">No</th>
+              <th className="border border-black rounded-md">Title</th>
+              <th className="border border-black rounded-md">Author</th>
+              <th className="border border-black rounded-md">Publishyear</th>
+              <th className="border border-black rounded-md">Operations</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="">
             {books.map((book, index) => {
               return (
                 <tr key={book._id} className="h-8">
@@ -70,7 +82,12 @@ const Home = () => {
                       <Link to={`/books/details/${book._id}`}>
                         <BsInfoCircle className="text-green-800 text-2xl" />
                       </Link>
-                      <Link to={`/books/edit/${book._id}`}>
+                      <Link
+                        to={{
+                          pathname: `/books/edit/${book._id}`,
+                          state: { customprop: book },
+                        }}
+                      >
                         <AiOutlineEdit className="text-yellow-600 text-2xl" />
                       </Link>
                       <Link to={`/books/delete/${book._id}`}>

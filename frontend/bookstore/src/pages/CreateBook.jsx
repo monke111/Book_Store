@@ -73,7 +73,7 @@ const Createbook = () => {
     //       </button>
     //     </div>
     //   </div>
-    <div className="p-10">
+    <div className="p-10 ">
       <Backbutton />
       <div className="flex flex-col items-center border border-gray-300 rounded-xl max-w-md mx-auto p-6 space-y-6">
         <h1 className="text-3xl font-bold text-gray-800">Create Book</h1>

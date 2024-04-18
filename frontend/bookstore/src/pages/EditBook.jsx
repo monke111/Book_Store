@@ -5,11 +5,16 @@ import Backbutton from "../components/Backbutton";
 import Spinner from "../components/Spinner";
 const EditBook = () => {
   const navigate = useNavigate();
+  // const location = useLocation(); //uselocation hook to access
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [publishyear, setPublishyear] = useState("");
+  // const datavalue = location.state && location.state.customprop;
+  // setTitle(datavalue.title || " ");
+  // setAuthor(datavalue.author || " ");
+  // setPublishyear(datavalue.publishyear || " ");
   const handleEditbook = () => {
     const data = {
       title,
